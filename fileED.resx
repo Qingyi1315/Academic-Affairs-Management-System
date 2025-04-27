@@ -127,7 +127,7 @@
   <data name="取消全选toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAitSURBVHhe7d3BcRtJEoVhmbIXUgdJHsyBZsxxTRgPaIpM
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAitSURBVHhe7d3BcRtJEoVhmbK8UAdJHsyBZsxxTRgPaIpM
         oSljwhx1mMNsPm6WggMWgaru7Mps6P8iXmiXILqag3xEA2iAnwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAH5dX758ebJ8t/z59evXF+Xbt2//9YsP9WbdfzzL1gZu8kK04bzMy+fPn//j3xrKS/m2GJc5
         bG1giA3h88VQvouGOHpQVY7eWp08+1WAtSaGNLQkM+sqHG4hhQ3fzXuPt4koyWw5FLvOd786sI4N37XH
@@ -164,12 +164,9 @@
         cBeiy9FQEtwFDeHFUE6lV44mqCR8aBxyaPguhnEq18rRRJTk1hrAIWz4Nt97jJSj2VsSuy6fzYv1esM4
         kplyNDtLwp8/wHpbBnZLOZqtJdF1fBPAOrPDqu/XkPvVN9H1N6zLIRbWs+EbfpAeUY5mQ0l4Jgs5RgY1
         shzNaEn0PX4VYD29EHdjUF+iy9EMlIQH56jBP+pR9xRtYPUU8JJDG1tTfwpORfy5dqnz/wEAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAknz79D7xuRB9iCq7wAAAAAElFTkSuQmCC
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAknz79DxOfQ/vlk1GtAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>246, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>76</value>
   </metadata>

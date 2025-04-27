@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FloatingNames;
+using System;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -13,7 +14,7 @@ namespace 教务管理系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new fileED());
+            Application.Run(new fileED());
             // 主循环：持续运行直到用户彻底退出
             //while (true)
             //{
