@@ -55,6 +55,9 @@
     <Reference Include="MySql.Data, Version=9.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.9.3.0\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="NetTopologySuite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>packages\NetTopologySuite.2.6.0\lib\netstandard2.0\NetTopologySuite.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
@@ -130,21 +133,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElGamalEngine.cs" />
-    <Compile Include="fileED.cs">
+    <Compile Include="main\tools\dmForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fileED.Designer.cs">
+    <Compile Include="main\tools\dmForm.Designer.cs">
+      <DependentUpon>dmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main\tools\ElGamalEngine.cs" />
+    <Compile Include="main\tools\fileED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\tools\fileED.Designer.cs">
       <DependentUpon>fileED.cs</DependentUpon>
     </Compile>
-    <Compile Include="fileED_logform.cs">
+    <Compile Include="main\tools\fileED_logform.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="dmForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="dmForm.Designer.cs">
-      <DependentUpon>dmForm.cs</DependentUpon>
     </Compile>
     <Compile Include="main\about.cs">
       <SubType>Form</SubType>
@@ -288,10 +291,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="dmForm.resx">
+    <EmbeddedResource Include="main\tools\dmForm.resx">
       <DependentUpon>dmForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fileED.resx">
+    <EmbeddedResource Include="main\tools\fileED.resx">
       <DependentUpon>fileED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main\about.resx">
@@ -365,19 +368,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>

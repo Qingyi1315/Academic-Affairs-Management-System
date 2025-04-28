@@ -307,5 +307,12 @@ namespace 教务管理系统.viewmenu
                 this.Close();
             }
         }
+
+        private void 文件加解密ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fileED fileED = new fileED();
+            fileED.Show();
+        }
+
     }
 }
