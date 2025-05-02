@@ -1,9 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -51,7 +48,7 @@ namespace 教务管理系统
                 teacher_number, teacher_name, teacher_password, teacher_gender, teacher_title, teacher_department, 
                 teacher_birthday, teacher_phone, teacher_email, teacher_professional_field, teacher_education_level, teacher_work_start_date
             ) VALUES (
-                @teacherNumber, @teacherName, AES_ENCRYPT(@teacherPassword, @encryption_key), @teacherGender, @teacherTitle, @teacherDepartment, 
+                @teacherNumber, @teacherName, @teacherPassword, @teacherGender, @teacherTitle, @teacherDepartment, 
                 @teacherBirthday, @teacherPhone, @teacherEmail, @teacherProfessionalField, @teacherEducationLevel, @teacherWorkStartDate
             )";
 

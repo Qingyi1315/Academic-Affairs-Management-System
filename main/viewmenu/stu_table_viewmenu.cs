@@ -3,7 +3,6 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统.viewmenu
@@ -178,7 +177,7 @@ namespace 教务管理系统.viewmenu
             try
             {
                 // 获取当前用户
-                string currentUser = GlobalVariables.CurrentUser;
+                string currentUser = GlobalVariables.CurrentUserNumber;
 
                 // 查询数据库获取当前用户的学生信息
                 string sql = @"
@@ -360,6 +359,16 @@ namespace 教务管理系统.viewmenu
         {
             fileED fileED = new fileED();
             fileED.Show();
+        }
+
+        private void 简易聊天ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ClientSocket().Show();
+        }
+
+        private void 课堂随机点名ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new dmForm().Show();
         }
     }
 }

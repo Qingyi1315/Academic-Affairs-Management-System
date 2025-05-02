@@ -120,12 +120,14 @@
             this.简易聊天ToolStripMenuItem.Name = "简易聊天ToolStripMenuItem";
             this.简易聊天ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.简易聊天ToolStripMenuItem.Text = "简易聊天";
+            this.简易聊天ToolStripMenuItem.Click += new System.EventHandler(this.简易聊天ToolStripMenuItem_Click);
             // 
             // 课堂随机点名ToolStripMenuItem
             // 
             this.课堂随机点名ToolStripMenuItem.Name = "课堂随机点名ToolStripMenuItem";
             this.课堂随机点名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.课堂随机点名ToolStripMenuItem.Text = "课堂随机点名";
+            this.课堂随机点名ToolStripMenuItem.Click += new System.EventHandler(this.课堂随机点名ToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 

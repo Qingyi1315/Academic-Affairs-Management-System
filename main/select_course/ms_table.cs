@@ -3,7 +3,6 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -61,7 +60,7 @@ namespace 教务管理系统
             try
             {
                 // 使用全局变量获取当前登录的用户名
-                string userNumber = GlobalVariables.CurrentUser;
+                string userNumber = GlobalVariables.CurrentUserNumber;
 
                 string sql = @"
             SELECT

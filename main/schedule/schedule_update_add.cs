@@ -1,9 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统.main

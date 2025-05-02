@@ -5,11 +5,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography.X509Certificates;
-using Org.BouncyCastle.Crypto.Parameters;
-using System.Threading;
 
 namespace 教务管理系统
 {
@@ -479,7 +478,7 @@ namespace 教务管理系统
                                 else if (encryptionCategories["对称加密"].Contains(algorithm))
                                 {
                                     AppendLog(fileName + "正在加密...");
-                                    EncryptFileWithProgress(filePath, outputPath,algorithm, ref processedSize, totalSize, token);
+                                    EncryptFileWithProgress(filePath, outputPath, algorithm, ref processedSize, totalSize, token);
                                     // 生成最终文件名并重命名
                                     finalPath = $"{filePath}.{algorithm.ToLower()}.enc";
                                     File.Move(outputPath, finalPath);
@@ -493,8 +492,8 @@ namespace 教务管理系统
                                     AppendLog($"{fileName}的{algorithm}哈希值: {hash}");
                                 }
                             }
-                            catch (Exception ex) 
-                            { 
+                            catch (Exception ex)
+                            {
                                 AppendLog($"{algorithm}: {ex.Message}");
                                 SafeDeleteFile(outputPath);
                             }
@@ -507,7 +506,7 @@ namespace 教务管理系统
                                 if (encryptionCategories["哈希算法"].Contains(algorithm))
                                 {
                                     AppendLog(fileName + "正在计算哈希值...");
-                                    string hash = ComputeHashWithProgress(filePath, algorithm, ref processedSize, totalSize,token);
+                                    string hash = ComputeHashWithProgress(filePath, algorithm, ref processedSize, totalSize, token);
                                     AppendLog($"{fileName}的{algorithm}哈希值: {hash}");
                                 }
                                 else if (encryptionCategories["对称加密"].Contains(algorithm))
@@ -523,9 +522,9 @@ namespace 教务管理系统
                                 {
                                     if (algorithm.Equals("RSA", StringComparison.OrdinalIgnoreCase))
                                     {
-                                            AppendLog(fileName + "正在解密...");
-                                            string decryptedFilePath = DecryptFileWithProgressRSA(filePath, certificate, ref processedSize, totalSize);
-                                            AppendLog($"{fileName}已解密为 {Path.GetFileName(decryptedFilePath)}");
+                                        AppendLog(fileName + "正在解密...");
+                                        string decryptedFilePath = DecryptFileWithProgressRSA(filePath, certificate, ref processedSize, totalSize);
+                                        AppendLog($"{fileName}已解密为 {Path.GetFileName(decryptedFilePath)}");
                                     }
                                     // 其他非对称加密算法的处理逻辑可以在这里补充
                                 }
@@ -588,7 +587,7 @@ namespace 教务管理系统
         }
 
         // 对称加密（使用随机密钥）
-        private void EncryptFileWithProgress(string filePath, string outputPath,string algorithm, ref long processedSize, long totalSize, CancellationToken token)
+        private void EncryptFileWithProgress(string filePath, string outputPath, string algorithm, ref long processedSize, long totalSize, CancellationToken token)
         {
             using (SymmetricAlgorithm algo = GetAlgorithm(algorithm))
             {
@@ -620,7 +619,7 @@ namespace 教务管理系统
                 SaveKeyAndIV(algo.Key, algo.IV, filePath, algorithm);
             }
         }
-        
+
         // 获取对称算法实现
         private SymmetricAlgorithm GetAlgorithm(string algorithm)
         {
@@ -699,7 +698,7 @@ namespace 教务管理系统
                 return decryptedFilePath;
             }
         }
-        
+
         // 读取密钥和 IV
         public (byte[] key, byte[] iv) ReadKeyAndIV(string filePath, string algorithm)
         {
@@ -781,7 +780,7 @@ namespace 教务管理系统
                 }
             }
         }
-        
+
         // 解密文件（RSA）
         private string DecryptFileWithProgressRSA(string encryptedFilePath, X509Certificate2 certificate, ref long processedSize, long totalSize)
         {
@@ -818,7 +817,7 @@ namespace 教务管理系统
                 return decryptedFilePath;
             }
         }
-        
+
         // 日志记录方法
         // 日志追加方法
         public void AppendLog(string message)

@@ -172,13 +172,14 @@ namespace 教务管理系统
             logTextBox.ScrollToCaret();
         }
 
-/*        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
+        /*        protected override void OnLoad(EventArgs e)
+                {
+                    base.OnLoad(e);
 
-            // 强制创建句柄
-            var handle = this.Handle;
-            var textBoxHandle = logTextBox.Handle;
-        }
-*/    }
+                    // 强制创建句柄
+                    var handle = this.Handle;
+                    var textBoxHandle = logTextBox.Handle;
+                }
+        */
+    }
 }

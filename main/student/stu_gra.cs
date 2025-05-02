@@ -3,7 +3,6 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -189,7 +188,7 @@ namespace 教务管理系统
                 if (GlobalVariables.CurrentRole == "学生")
                 {
                     // 学生角色：查询当前学生的成绩
-                    string userNumber = GlobalVariables.CurrentUser;
+                    string userNumber = GlobalVariables.CurrentUserNumber;
 
                     sql = @"
                         SELECT

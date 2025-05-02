@@ -1,10 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Configuration;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
+using 教务管理系统;
 using 教务管理系统.main;
 
 namespace 教务管理系统
@@ -295,6 +292,16 @@ namespace 教务管理系统
         {
             fileED fileED = new fileED();
             fileED.Show();
+        }
+
+        private void 简易聊天ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ServerSocket().Show();
+        }
+
+        private void 课堂随机点名ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new dmForm().Show();
         }
     }
 }

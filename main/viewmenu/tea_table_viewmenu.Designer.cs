@@ -33,6 +33,10 @@
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.发送反馈ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出账户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.小工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.文件加解密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.简易聊天ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.课堂随机点名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -41,10 +45,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.小工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.文件加解密ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.简易聊天ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.课堂随机点名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,6 +94,37 @@
             this.退出账户ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.退出账户ToolStripMenuItem.Text = "退出账户";
             this.退出账户ToolStripMenuItem.Click += new System.EventHandler(this.退出账户ToolStripMenuItem_Click);
+            // 
+            // 小工具ToolStripMenuItem
+            // 
+            this.小工具ToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.小工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件加解密ToolStripMenuItem,
+            this.简易聊天ToolStripMenuItem,
+            this.课堂随机点名ToolStripMenuItem});
+            this.小工具ToolStripMenuItem.Name = "小工具ToolStripMenuItem";
+            this.小工具ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.小工具ToolStripMenuItem.Text = "小工具";
+            // 
+            // 文件加解密ToolStripMenuItem
+            // 
+            this.文件加解密ToolStripMenuItem.Name = "文件加解密ToolStripMenuItem";
+            this.文件加解密ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文件加解密ToolStripMenuItem.Text = "文件加解密";
+            // 
+            // 简易聊天ToolStripMenuItem
+            // 
+            this.简易聊天ToolStripMenuItem.Name = "简易聊天ToolStripMenuItem";
+            this.简易聊天ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.简易聊天ToolStripMenuItem.Text = "简易聊天";
+            this.简易聊天ToolStripMenuItem.Click += new System.EventHandler(this.简易聊天ToolStripMenuItem_Click);
+            // 
+            // 课堂随机点名ToolStripMenuItem
+            // 
+            this.课堂随机点名ToolStripMenuItem.Name = "课堂随机点名ToolStripMenuItem";
+            this.课堂随机点名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.课堂随机点名ToolStripMenuItem.Text = "课堂随机点名";
+            this.课堂随机点名ToolStripMenuItem.Click += new System.EventHandler(this.课堂随机点名ToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -190,35 +221,6 @@
             this.label1.Size = new System.Drawing.Size(475, 126);
             this.label1.TabIndex = 1;
             this.label1.Text = "欢迎使用本系统，\r\n祝您使用愉快！";
-            // 
-            // 小工具ToolStripMenuItem
-            // 
-            this.小工具ToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.小工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件加解密ToolStripMenuItem,
-            this.简易聊天ToolStripMenuItem,
-            this.课堂随机点名ToolStripMenuItem});
-            this.小工具ToolStripMenuItem.Name = "小工具ToolStripMenuItem";
-            this.小工具ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.小工具ToolStripMenuItem.Text = "小工具";
-            // 
-            // 文件加解密ToolStripMenuItem
-            // 
-            this.文件加解密ToolStripMenuItem.Name = "文件加解密ToolStripMenuItem";
-            this.文件加解密ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.文件加解密ToolStripMenuItem.Text = "文件加解密";
-            // 
-            // 简易聊天ToolStripMenuItem
-            // 
-            this.简易聊天ToolStripMenuItem.Name = "简易聊天ToolStripMenuItem";
-            this.简易聊天ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.简易聊天ToolStripMenuItem.Text = "简易聊天";
-            // 
-            // 课堂随机点名ToolStripMenuItem
-            // 
-            this.课堂随机点名ToolStripMenuItem.Name = "课堂随机点名ToolStripMenuItem";
-            this.课堂随机点名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.课堂随机点名ToolStripMenuItem.Text = "课堂随机点名";
             // 
             // tea_table_viewmenu
             // 

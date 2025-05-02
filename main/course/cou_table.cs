@@ -3,7 +3,6 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -403,7 +402,7 @@ namespace 教务管理系统
 
             MySqlParameter[] parameters = new MySqlParameter[]
             {
-    new MySqlParameter("@userNumber", MySqlDbType.VarChar) { Value = GlobalVariables.CurrentUser }
+    new MySqlParameter("@userNumber", MySqlDbType.VarChar) { Value = GlobalVariables.CurrentUserNumber }
             };
 
             DataTable dataTable = dbHelper.ExecuteQuery(sql, parameters);

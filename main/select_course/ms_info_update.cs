@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -39,7 +37,7 @@ namespace 教务管理系统
             try
             {
                 // 使用全局变量获取当前登录的用户名
-                string userNumber = GlobalVariables.CurrentUser;
+                string userNumber = GlobalVariables.CurrentUserNumber;
 
                 string courseSql = @"
                     SELECT 
@@ -127,7 +125,7 @@ namespace 教务管理系统
                 // 用户点击“确定”，执行选课操作
                 try
                 {
-                    string userNumber = GlobalVariables.CurrentUser;
+                    string userNumber = GlobalVariables.CurrentUserNumber;
 
                     // 获取当前所有选课记录
                     string existingSelectionSql = @"

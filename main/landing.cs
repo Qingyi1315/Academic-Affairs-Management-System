@@ -190,10 +190,10 @@ namespace 教务管理系统
         {
             //string username = textBox1.Text.Trim();
             //string password = textBox2.Text.Trim();
-            string username = "G001";
-            string password = "password1";
+            string usernumber = "2023001";
+            string password = "123";
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(usernumber) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("用户名或密码不能为空！");
                 return;
@@ -204,7 +204,7 @@ namespace 教务管理系统
             DataTable adminResult = null;
 
             // 查询学生、教师和管理员表
-            ValidateLogin(username, password, out studentResult, out teacherResult, out adminResult);
+            ValidateLogin(usernumber, password, out studentResult, out teacherResult, out adminResult);
 
             // 判断账号密码是否正确
             bool isStudentValid = studentResult != null && studentResult.Rows.Count > 0;
@@ -221,7 +221,8 @@ namespace 教务管理系统
                 if (isStudentValid && comboBox1.SelectedIndex == 0) // 学生角色正确
                 {
                     this.pictureBox1.Image = Properties.Resources._2;
-                    GlobalVariables.CurrentUser = username;
+                    GlobalVariables.CurrentUserNumber = usernumber;
+                    GlobalVariables.CurrentUserName = studentResult.Rows[0]["student_name"].ToString();
                     GlobalVariables.CurrentRole = "学生";
                     IsLoginSuccessful = true;
                     this.DialogResult = DialogResult.OK;
@@ -230,7 +231,8 @@ namespace 教务管理系统
                 else if (isTeacherValid && comboBox1.SelectedIndex == 1) // 教师角色正确
                 {
                     this.pictureBox1.Image = Properties.Resources._2;
-                    GlobalVariables.CurrentUser = username;
+                    GlobalVariables.CurrentUserNumber = usernumber;
+                    GlobalVariables.CurrentUserName = teacherResult.Rows[0]["teacher_name"].ToString();
                     GlobalVariables.CurrentRole = "教师";
                     IsLoginSuccessful = true;
                     this.DialogResult = DialogResult.OK;
@@ -239,7 +241,8 @@ namespace 教务管理系统
                 else if (isAdminValid && comboBox1.SelectedIndex == 2) // 管理员角色正确
                 {
                     this.pictureBox1.Image = Properties.Resources._2;
-                    GlobalVariables.CurrentUser = username;
+                    GlobalVariables.CurrentUserNumber = usernumber;
+                    GlobalVariables.CurrentUserName = adminResult.Rows[0]["admin_name"].ToString(); ;
                     GlobalVariables.CurrentRole = "管理员";
                     IsLoginSuccessful = true;
                     this.DialogResult = DialogResult.OK;
@@ -259,11 +262,11 @@ namespace 教务管理系统
             adminResult = null;
 
             // 查询学生表
-            string studentSql = "SELECT * FROM student_information WHERE student_number = @username AND AES_DECRYPT(student_password, @encryption_key) = @password ";
+            string studentSql = "SELECT * FROM student_information WHERE student_number = @username AND student_password = @password ";
             // 查询教师表
-            string teacherSql = "SELECT * FROM teacher_information WHERE teacher_number = @username AND AES_DECRYPT(teacher_password, @encryption_key) = @password";
+            string teacherSql = "SELECT * FROM teacher_information WHERE teacher_number = @username AND teacher_password = @password";
             // 查询管理员表
-            string adminSql = "SELECT * FROM admin_information WHERE admin_number = @username AND AES_DECRYPT(admin_password, @encryption_key) = @password";
+            string adminSql = "SELECT * FROM admin_information WHERE admin_number = @username AND admin_password = @password";
 
             MySqlParameter[] parameters = new MySqlParameter[]
             {

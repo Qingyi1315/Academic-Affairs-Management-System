@@ -1,9 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -97,7 +94,7 @@ namespace 教务管理系统
                 // 构建 SQL 更新语句
                 string sql = @"
                     UPDATE teacher_information 
-                    SET teacher_password = AES_ENCRYPT(@teacherPassword, @encryption_key),  
+                    SET teacher_password = @teacherPassword,  
                         teacher_title = @teacherTitle, teacher_department = @teacherDepartment, 
                         teacher_phone = @teacherPhone, teacher_email = @teacherEmail, teacher_professional_field = @teacherProfessionalField, 
                         teacher_education_level = @teacherEducationLevel
