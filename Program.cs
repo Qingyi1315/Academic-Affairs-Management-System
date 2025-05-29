@@ -1,8 +1,4 @@
-﻿using 教务管理系统;
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Security.Principal;
+﻿using System;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -17,7 +13,7 @@ namespace 教务管理系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new landing_form());
+            //Application.Run(new ServerSocket());
             //主循环：持续运行直到用户彻底退出
             while (true)
             {
@@ -62,7 +58,8 @@ namespace 教务管理系统
                     }
                 }
             }
+
         }
-        
+
     }
 }

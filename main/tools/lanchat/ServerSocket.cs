@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -20,6 +16,20 @@ namespace 教务管理系统
         {
             InitializeComponent();
         }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
+        }
+
+
         //启动服务器
         private void bt_start_Click(object sender, EventArgs e)
         {
@@ -151,7 +161,7 @@ namespace 教务管理系统
                 lock (SocketHelper.lockObj)
                 {
                     var userEntry = SocketHelper.Intanter.dicUsers
-                        .FirstOrDefault(x => x.Value == currentSocket); 
+                        .FirstOrDefault(x => x.Value == currentSocket);
                     nickname = userEntry.Key ?? "未知用户";
                 }
 
@@ -221,7 +231,7 @@ namespace 教务管理系统
 
                 try
                 {
-                    if (currentSocket.Connected) 
+                    if (currentSocket.Connected)
                     {
                         currentSocket.Shutdown(SocketShutdown.Both);
                     }

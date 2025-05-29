@@ -27,6 +27,19 @@ namespace 教务管理系统
             dbHelper = new DatabaseHelper(connectionString);
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
+        }
+
+
         private void cuo_info_alt_Load(object sender, EventArgs e)
         {
             // 显示传递过来的数据

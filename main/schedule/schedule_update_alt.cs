@@ -30,6 +30,18 @@ namespace 教务管理系统.main
             dbHelper = new DatabaseHelper(connectionString);
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
+        }
+
         private void schedule_update_alt_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(CourseName))

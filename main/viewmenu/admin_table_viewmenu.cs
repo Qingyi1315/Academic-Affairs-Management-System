@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using 教务管理系统;
 using 教务管理系统.main;
 
 namespace 教务管理系统
@@ -16,6 +15,18 @@ namespace 教务管理系统
             tabControl1.DrawItem += TabControl1_DrawItem;
             tabControl1.MouseDown += TabControl1_MouseDown;
             tabControl1.Padding = new Point(20, 3); // 增加标签页内边距
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
         }
 
         private void TabControl1_DrawItem(object sender, DrawItemEventArgs e)
@@ -302,6 +313,11 @@ namespace 教务管理系统
         private void 课堂随机点名ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new dmForm().Show();
+        }
+
+        private void aI聊天ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new aichat().Show();
         }
     }
 }

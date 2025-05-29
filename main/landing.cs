@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -40,6 +41,19 @@ namespace 教务管理系统
 
 
         }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
+        }
+
 
         private void InitializeTogglePasswordButton()
         {
@@ -186,12 +200,10 @@ namespace 教务管理系统
             SetPlaceholderText(textBox2, "请输入密码");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            //string username = textBox1.Text.Trim();
-            //string password = textBox2.Text.Trim();
-            string usernumber = "2023001";
-            string password = "123";
+            string usernumber = textBox1.Text.Trim();
+            string password = textBox2.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(usernumber) || string.IsNullOrWhiteSpace(password))
             {
@@ -221,6 +233,7 @@ namespace 教务管理系统
                 if (isStudentValid && comboBox1.SelectedIndex == 0) // 学生角色正确
                 {
                     this.pictureBox1.Image = Properties.Resources._2;
+                    await Task.Delay(3000);
                     GlobalVariables.CurrentUserNumber = usernumber;
                     GlobalVariables.CurrentUserName = studentResult.Rows[0]["student_name"].ToString();
                     GlobalVariables.CurrentRole = "学生";
@@ -231,6 +244,7 @@ namespace 教务管理系统
                 else if (isTeacherValid && comboBox1.SelectedIndex == 1) // 教师角色正确
                 {
                     this.pictureBox1.Image = Properties.Resources._2;
+                    await Task.Delay(3000);
                     GlobalVariables.CurrentUserNumber = usernumber;
                     GlobalVariables.CurrentUserName = teacherResult.Rows[0]["teacher_name"].ToString();
                     GlobalVariables.CurrentRole = "教师";
@@ -241,6 +255,7 @@ namespace 教务管理系统
                 else if (isAdminValid && comboBox1.SelectedIndex == 2) // 管理员角色正确
                 {
                     this.pictureBox1.Image = Properties.Resources._2;
+                    await Task.Delay(3000);
                     GlobalVariables.CurrentUserNumber = usernumber;
                     GlobalVariables.CurrentUserName = adminResult.Rows[0]["admin_name"].ToString(); ;
                     GlobalVariables.CurrentRole = "管理员";

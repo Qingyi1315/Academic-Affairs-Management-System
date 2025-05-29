@@ -22,16 +22,6 @@ namespace 教务管理系统
         {
             // 必须首先调用保证控件初始化
             InitializeComponent();
-
-            // 初始化无操作检测定时器
-            idleTimer = new System.Windows.Forms.Timer
-            {
-                Interval = 60000 // 每分钟检查一次
-            };
-            idleTimer.Tick += CheckIdleTime;
-            ResetActivity();
-            idleTimer.Start();
-
             // 手动订阅句柄创建事件
             this.HandleCreated += (s, e) =>
             {
@@ -81,31 +71,55 @@ namespace 教务管理系统
 
         private void InitializeComponent()
         {
-            // 基础控件初始化
-            logTextBox = new TextBox();
-            copyButton = new Button();
+            this.logTextBox = new System.Windows.Forms.TextBox();
+            this.copyButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // logTextBox
+            // 
+            this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.logTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logTextBox.Location = new System.Drawing.Point(0, 0);
+            this.logTextBox.Multiline = true;
+            this.logTextBox.Name = "logTextBox";
+            this.logTextBox.ReadOnly = true;
+            this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.logTextBox.Size = new System.Drawing.Size(1045, 498);
+            this.logTextBox.TabIndex = 0;
+            // 
+            // copyButton
+            // 
+            this.copyButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.copyButton.Location = new System.Drawing.Point(0, 498);
+            this.copyButton.Name = "copyButton";
+            this.copyButton.Size = new System.Drawing.Size(1045, 30);
+            this.copyButton.TabIndex = 1;
+            this.copyButton.Text = "复制日志";
+            this.copyButton.Click += new System.EventHandler(this.CopyButton_Click);
+            // 
+            // fileED_logform
+            // 
+            this.ClientSize = new System.Drawing.Size(1045, 528);
+            this.Controls.Add(this.logTextBox);
+            this.Controls.Add(this.copyButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Load += new System.EventHandler(this.fileED_logform_Load);
+            this.Name = "fileED_logform";
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
-            // 日志文本框配置
-            logTextBox.Multiline = true;
-            logTextBox.ReadOnly = true;
-            logTextBox.Dock = DockStyle.Fill;
-            logTextBox.ScrollBars = ScrollBars.Vertical;
-            logTextBox.BorderStyle = BorderStyle.None;
+        }
 
-            // 复制按钮配置
-            copyButton.Text = "复制日志";
-            copyButton.Dock = DockStyle.Bottom;
-            copyButton.Height = 30;
-            copyButton.Click += new EventHandler(CopyButton_Click);
-
-            // 窗体配置
-            this.TopLevel = false;  // 关键设置：允许嵌入容器
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Dock = DockStyle.Fill;
-
-            // 添加控件
-            this.Controls.Add(logTextBox);
-            this.Controls.Add(copyButton);
+        private void fileED_logform_Load(object sender, EventArgs e)
+        {
+            // 初始化无操作检测定时器
+            idleTimer = new System.Windows.Forms.Timer
+            {
+                Interval = 60000 // 每分钟检查一次
+            };
+            idleTimer.Tick += CheckIdleTime;
+            ResetActivity();
+            idleTimer.Start();
         }
 
         private void CopyButton_Click(object sender, EventArgs e)

@@ -45,6 +45,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
+            this.aI聊天ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,7 +102,8 @@
             this.小工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件加解密ToolStripMenuItem,
             this.简易聊天ToolStripMenuItem,
-            this.课堂随机点名ToolStripMenuItem});
+            this.课堂随机点名ToolStripMenuItem,
+            this.aI聊天ToolStripMenuItem});
             this.小工具ToolStripMenuItem.Name = "小工具ToolStripMenuItem";
             this.小工具ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.小工具ToolStripMenuItem.Text = "小工具";
@@ -222,6 +224,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "欢迎使用本系统，\r\n祝您使用愉快！";
             // 
+            // aI聊天ToolStripMenuItem
+            // 
+            this.aI聊天ToolStripMenuItem.Name = "aI聊天ToolStripMenuItem";
+            this.aI聊天ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aI聊天ToolStripMenuItem.Text = "AI聊天";
+            this.aI聊天ToolStripMenuItem.Click += new System.EventHandler(this.aI聊天ToolStripMenuItem_Click);
+            // 
             // tea_table_viewmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -264,5 +273,6 @@
         private System.Windows.Forms.ToolStripMenuItem 文件加解密ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 简易聊天ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 课堂随机点名ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aI聊天ToolStripMenuItem;
     }
 }

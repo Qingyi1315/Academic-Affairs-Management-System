@@ -97,6 +97,19 @@ namespace 教务管理系统
             button3.Enabled = false; // 初始状态下禁用终止按钮
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
+        }
+
+
         private void ListView1_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             // 阻止列宽改变

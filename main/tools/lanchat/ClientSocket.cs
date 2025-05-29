@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace 教务管理系统
@@ -20,9 +14,9 @@ namespace 教务管理系统
         {
             InitializeComponent();
             listBox1.MouseDoubleClick += ListBox1_MouseDoubleClick;
-            if(GlobalVariables.CurrentRole == "学生")
+            if (GlobalVariables.CurrentRole == "学生")
             {
-                tb_name.Text = GlobalVariables.CurrentUserName+GlobalVariables.CurrentUserNumber;
+                tb_name.Text = GlobalVariables.CurrentUserName + GlobalVariables.CurrentUserNumber;
                 tb_name.Enabled = false;
             }
             else if (GlobalVariables.CurrentRole == "教师")
@@ -38,6 +32,19 @@ namespace 教务管理系统
             }
         }
         Socket socketSend;
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
+        }
+
 
         private void ListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -128,21 +135,21 @@ namespace 教务管理系统
         }
 
         private void UpdateUserList(string userList)
-{
-    this.BeginInvoke(new MethodInvoker(() => 
-    {
-        listBox1.BeginUpdate();
-        listBox1.Items.Clear();
-        
-        foreach (string user in userList.Split(','))
         {
-            if (!string.IsNullOrEmpty(user))
-                listBox1.Items.Add(user);
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                listBox1.BeginUpdate();
+                listBox1.Items.Clear();
+
+                foreach (string user in userList.Split(','))
+                {
+                    if (!string.IsNullOrEmpty(user))
+                        listBox1.Items.Add(user);
+                }
+
+                listBox1.EndUpdate();
+            }));
         }
-        
-        listBox1.EndUpdate();
-    }));
-}
         private void SendMessage()
         {
             string receiver = label4.Text;

@@ -20,6 +20,18 @@ namespace 教务管理系统.viewmenu
             tabControl1.Padding = new Point(20, 3); // 增加标签页内边距
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // 阻止双击标题栏行为
+            }
+
+            base.WndProc(ref m);
+        }
+
         private void tea_table_viewmenu_Load(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
@@ -322,6 +334,11 @@ namespace 教务管理系统.viewmenu
         private void 课堂随机点名ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new dmForm().Show();
+        }
+
+        private void aI聊天ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new aichat().Show();
         }
     }
 }
